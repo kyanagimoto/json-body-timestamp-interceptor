@@ -27,7 +27,7 @@ public class JsonBodyTimestampInterceptor implements Interceptor {
     @Override
     public Event intercept(Event event) {
 
-        Map<String, Integer> headers = event.getHeaders();
+        Map<String, String> headers = event.getHeaders();
 
         String body = new String(event.getBody());
         JSONParser jsonParser = new JSONParser();
@@ -43,10 +43,10 @@ public class JsonBodyTimestampInterceptor implements Interceptor {
         String timestamp = jsonObject.get("@timestamp").toString();
         LocalDateTime parsedDateTime = LocalDateTime.parse(timestamp);
 
-        headers.put("timestampYear", parsedDateTime.getYear());
-        headers.put("timestampMonth", parsedDateTime.getMonthValue());
-        headers.put("timestampDay", parsedDateTime.getDayOfMonth());
-        headers.put("timestampHour", parsedDateTime.getHour());
+        headers.put("timestampYear", String.valueOf(parsedDateTime.getYear()));
+        headers.put("timestampMonth", String.valueOf(parsedDateTime.getMonthValue()));
+        headers.put("timestampDay", String.valueOf(parsedDateTime.getDayOfMonth()));
+        headers.put("timestampHour", String.valueOf(parsedDateTime.getHour()));
 
         return event;
     }
