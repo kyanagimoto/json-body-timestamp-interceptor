@@ -4,7 +4,7 @@ This project provides an interceptor for Flume.
 
 ## requirement
   - Source data is JSON structure.
-  - It's need to included "@timestamp" key on Json head level.
+  - It's need to included timestamp value on Json head level.
   - It will put on the Sink header.
 
 ## How to use
@@ -14,8 +14,13 @@ This project provides an interceptor for Flume.
 cd ./json-body-timestamp-interceptor
 mvn clean install
 ```
+
 3. The jar file will be installed in your local maven repository and can be found in sub-directory.  
 Add it on Flume classpath.
+```
+cp ./target/json-body-timestamp-interceptor-0.X.jar /path/to/flume
+```
+
 4. Configure Flume conf file.
 ```properties
 agent.sources = r1
