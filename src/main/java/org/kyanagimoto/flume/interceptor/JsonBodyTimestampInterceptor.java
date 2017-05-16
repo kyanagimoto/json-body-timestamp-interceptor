@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 
 import org.apache.flume.Context;
 import org.apache.flume.Event;
-import org.apache.flume.interceptor.Interceptor
+import org.apache.flume.interceptor.Interceptor;
 import org.apache.log4j.Logger;
 
 import org.json.simple.JSONObject;
