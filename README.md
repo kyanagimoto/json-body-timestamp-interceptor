@@ -24,6 +24,7 @@ cp ./target/json-body-timestamp-interceptor-0.X.jar /path/to/flume/dir/lib
 4. Configure Flume conf file.
 Saved values (timestampYear, timestampMonth, timestampDay, timestampHour) on flume header.
 
+example)
 ```properties
 agent.sources = r1
 agent.sinks = s1
