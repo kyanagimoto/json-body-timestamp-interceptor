@@ -18,7 +18,7 @@ mvn clean install
 3. The jar file will be installed in your local maven repository and can be found in sub-directory.  
 Add it on Flume classpath.
 ```
-cp ./target/json-body-timestamp-interceptor-0.X.jar /path/to/flume
+cp ./target/json-body-timestamp-interceptor-0.X.jar /path/to/flume/dir/lib
 ```
 
 4. Configure Flume conf file.
