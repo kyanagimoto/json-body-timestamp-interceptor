@@ -40,3 +40,6 @@ agent.sinks.s1.hdfs.path = hdfs://path/%{timestampYear}/%{timestampMonth}/%{time
 ## Change Log
 ### v0.1.1
 move property value on flume property file.
+
+### v0.1.2
+change org.apache -> org.kyanagimoto
