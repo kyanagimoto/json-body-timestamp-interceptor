@@ -1,4 +1,4 @@
-package org.apache.flume.interceptor;
+package org.kyanagimoto.flume.interceptor;
 
 /**
  * Created by koichi.yanagimoto on 2017/05/15.
@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 
 import org.apache.flume.Context;
 import org.apache.flume.Event;
+import org.apache.flume.interceptor.Interceptor
 import org.apache.log4j.Logger;
 
 import org.json.simple.JSONObject;
