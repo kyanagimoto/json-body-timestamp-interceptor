@@ -25,7 +25,7 @@ cp ./target/json-body-timestamp-interceptor-0.X.jar /path/to/flume
 ```properties
 agent.sources = r1
 agent.sources.r1.interceptor = i1
-agent.sources.r1.interceptor.i1.type = org.apache.flume.interceptor.JsonBodyTimestampInterceptor#Builder
+agent.sources.r1.interceptor.i1.type = org.apache.flume.interceptor.JsonBodyTimestampInterceptor$Builder
 agent.sources.r1.interceptor.i1.properties.timestampKeyName = @timestamp
 ```
 
