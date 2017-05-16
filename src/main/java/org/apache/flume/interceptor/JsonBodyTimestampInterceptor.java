@@ -21,13 +21,16 @@ public class JsonBodyTimestampInterceptor implements Interceptor {
     }
 
     private String timestampKey;
+    private String dateTimeFormat;
     protected Context context;
 
     public static final String TIMESTAMP_KEY_NAME = "properties.timestampKeyName";
+    public static final String DATE_TIME_FORMAT = "properties.dateTimeFormat";
 
     public JsonBodyTimestampInterceptor(Context context) {
         this.context = context;
         this.timestampKey = context.getString(TIMESTAMP_KEY_NAME);
+        this.dateTimeFormat = context.getString(DATE_TIME_FORMAT);
     }
 
     @Override
@@ -49,7 +52,8 @@ public class JsonBodyTimestampInterceptor implements Interceptor {
         }
 
         String timestamp = jsonObject.get(this.timestampKey).toString();
-        LocalDateTime parsedDateTime = LocalDateTime.parse(timestamp);
+        java.time.format.DateTimeFormatter dtf = java.time.format.DateTimeFormatter.ofPattern(this.dateTimeFormat);
+        LocalDateTime parsedDateTime = LocalDateTime.parse(timestamp, dtf);
 
         headers.put("timestampYear", String.valueOf(parsedDateTime.getYear()));
         headers.put("timestampMonth", String.valueOf(parsedDateTime.getMonthValue()));
