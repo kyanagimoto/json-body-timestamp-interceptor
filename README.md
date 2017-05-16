@@ -29,7 +29,7 @@ agent.sources = r1
 agent.sinks = s1
 
 agent.sources.r1.interceptor = i1
-agent.sources.r1.interceptors.i1.type = org.apache.flume.interceptor.JsonBodyTimestampInterceptor$Builder
+agent.sources.r1.interceptors.i1.type = org.kyanagimoto.flume.interceptor.JsonBodyTimestampInterceptor$Builder
 agent.sources.r1.interceptors.i1.properties.timestampKeyName = @timestamp
 agent.sources.r1.interceptors.i1.properties.dateTimeFormat = yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
 
