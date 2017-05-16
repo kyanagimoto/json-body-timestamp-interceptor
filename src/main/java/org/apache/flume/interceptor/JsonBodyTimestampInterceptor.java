@@ -4,29 +4,37 @@ package org.apache.flume.interceptor;
  * Created by koichi.yanagimoto on 2017/05/15.
  */
 
-import java.time.LocalDateTime;
 import java.util.*;
+import java.time.LocalDateTime;
+
 import org.apache.flume.Context;
 import org.apache.flume.Event;
 import org.apache.log4j.Logger;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class JsonBodyTimestampInterceptor implements Interceptor {
     private static final Logger LOG;
-
     static {
         LOG = Logger.getLogger(JsonBodyTimestampInterceptor.class);
     }
 
-    private JsonBodyTimestampInterceptor() {}
+    private String timestampKey;
+    protected Context context;
+
+    public static final String TIMESTAMP_KEY_NAME = "properties.timestampKeyName";
+
+    public JsonBodyTimestampInterceptor(Context context) {
+        this.context = context;
+        this.timestampKey = context.getString(TIMESTAMP_KEY_NAME);
+    }
 
     @Override
     public void initialize() {}
 
     @Override
     public Event intercept(Event event) {
-
         Map<String, String> headers = event.getHeaders();
 
         String body = new String(event.getBody());
@@ -40,7 +48,7 @@ public class JsonBodyTimestampInterceptor implements Interceptor {
             return event;
         }
 
-        String timestamp = jsonObject.get("@timestamp").toString();
+        String timestamp = jsonObject.get(this.timestampKey).toString();
         LocalDateTime parsedDateTime = LocalDateTime.parse(timestamp);
 
         headers.put("timestampYear", String.valueOf(parsedDateTime.getYear()));
@@ -62,13 +70,18 @@ public class JsonBodyTimestampInterceptor implements Interceptor {
     @Override
     public void close() {}
 
+
+
     public static class Builder implements Interceptor.Builder {
+        private Context ctx;
         @Override
         public Interceptor build() {
-            return new JsonBodyTimestampInterceptor();
+            return new JsonBodyTimestampInterceptor(ctx);
         }
 
         @Override
-        public void configure(Context context) {}
+        public void configure(Context context) {
+            this.ctx = context;
+        }
     }
 }
