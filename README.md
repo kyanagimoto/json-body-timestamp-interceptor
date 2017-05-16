@@ -33,7 +33,7 @@ agent.sources.r1.interceptors.i1.type = org.apache.flume.interceptor.JsonBodyTim
 agent.sources.r1.interceptors.i1.properties.timestampKeyName = @timestamp
 agent.sources.r1.interceptors.i1.properties.dateTimeFormat = yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
 
-agent.sinks.s1.hdfs-.path = hdfs://path/%{timestampYear}/%{timestampMonth}/%{timestampDay}/%{timestampHour}
+agent.sinks.s1.hdfs.path = hdfs://path/%{timestampYear}/%{timestampMonth}/%{timestampDay}/%{timestampHour}
 ```
 
 ## Change Log
