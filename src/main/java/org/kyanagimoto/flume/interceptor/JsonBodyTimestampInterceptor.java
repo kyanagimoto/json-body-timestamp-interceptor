@@ -75,8 +75,6 @@ public class JsonBodyTimestampInterceptor implements Interceptor {
     @Override
     public void close() {}
 
-
-
     public static class Builder implements Interceptor.Builder {
         private Context ctx;
         @Override
