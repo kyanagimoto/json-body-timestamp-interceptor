@@ -1,8 +1,4 @@
 language: Java
-
-jdk:
-  - openjdk8
-
-os:
-  - linux
+sudo: false
+script: mvn clean verify
 
