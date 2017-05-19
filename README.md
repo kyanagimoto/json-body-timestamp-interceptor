@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/kyanagimoto/json-body-timestamp-interceptor.svg?branch=master)](https://travis-ci.org/kyanagimoto/json-body-timestamp-interceptor)
 # Flume Interceptor: json-body-timestamp-interceptor
 
 This project provides an interceptor for Flume.
