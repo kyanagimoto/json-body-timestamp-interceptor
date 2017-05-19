@@ -1,6 +1,0 @@
-language: Java
-jdk:
-  - oraclejdk8
-sudo: false
-script: mvn clean verify
-
