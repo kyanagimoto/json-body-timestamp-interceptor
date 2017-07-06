@@ -43,3 +43,6 @@ move property value on flume property file.
 
 ### v0.1.2
 change org.apache -> org.kyanagimoto
+
+### v0.1.3
+add header information.

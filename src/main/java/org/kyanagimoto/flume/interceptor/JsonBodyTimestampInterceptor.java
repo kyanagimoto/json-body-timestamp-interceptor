@@ -60,6 +60,7 @@ public class JsonBodyTimestampInterceptor implements Interceptor {
         headers.put("timestampMonth", String.valueOf(parsedDateTime.getMonthValue()));
         headers.put("timestampDay", String.valueOf(parsedDateTime.getDayOfMonth()));
         headers.put("timestampHour", String.valueOf(parsedDateTime.getHour()));
+        headers.put("timestampMinute", String.valueOf(parsedDateTime.getMinute()));
 
         return event;
     }
